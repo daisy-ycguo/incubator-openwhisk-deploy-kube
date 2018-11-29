@@ -74,8 +74,13 @@ k8s:
   dns: kube-dns.kube-system
   persistence:
     enabled: true
+    # Check your Kubernetes cluster if default StorageClass is configured
+    # by 'kubectl get StorageClass'.
+    # leave useDynamicProvisioning as true if using dynamic provisioning
+    # or else, change it to false
     useDynamicProvisioning: true
-    defaultStorageClass:               # intentionally left blank, which will result in using the default storageclass
+    # if useDynamicProvisioning is set to false, you must provide a defaultStorageClass
+    defaultStorageClass:
 
 # Images used to run auxillary tasks/jobs
 utility:

@@ -9,7 +9,7 @@ metadata:
   labels:
 {{ include "openwhisk.label_boilerplate" . | indent 4 }}
 spec:
-{{- if .Values.k8s.persistence.useDynamicProvisioning }}
+{{- if not .Values.k8s.persistence.useDynamicProvisioning }}
   storageClassName: {{ .Values.k8s.persistence.defaultStorageClass }}
 {{- end }}
   accessModes:
