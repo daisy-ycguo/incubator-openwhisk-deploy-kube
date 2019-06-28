@@ -22,7 +22,7 @@ metadata:
 {{- if .Values.metrics.prometheusEnabled }}
   annotations:
     prometheus.io/scrape: 'true'
-    prometheus.io/port: {{ .Values.invoker.port }}
+    prometheus.io/port: {{ .Values.invoker.port | quote }}
 {{- end }}
   labels:
     name: {{ .Release.Name }}-invoker
